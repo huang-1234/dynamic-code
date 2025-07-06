@@ -4,14 +4,15 @@
   "description": "server-md-rag server",
   "private": true,
   "dependencies": {
-    "axios": "1.10.0",
     "@midwayjs/bootstrap": "^3.12.0",
     "@midwayjs/core": "^3.12.0",
     "@midwayjs/info": "^3.12.0",
     "@midwayjs/koa": "^3.12.0",
     "@midwayjs/logger": "^3.1.0",
+    "@midwayjs/socketio": "^3.12.0",
     "@midwayjs/validate": "^3.12.0",
-    "@midwayjs/socketio": "^3.12.0"
+    "axios": "1.10.0",
+    "dotenv": "^17.0.1"
   },
   "devDependencies": {
     "@midwayjs/mock": "^3.12.0",
