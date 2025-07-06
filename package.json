@@ -1,0 +1,42 @@
+{
+  "name": "dc",
+  "description": "Dynamic Code",
+  "version": "1.0.0",
+  "private": false,
+  "workspaces": [
+    "libs/*",
+    "apps/*",
+    "servers/*",
+    "website"
+  ],
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r clean",
+    "release": "node scripts/publish.mjs --tag alpha --name lite-store-react",
+    "release:beta": "node scripts/publish.mjs --tag beta --name lite-store-react",
+    "release:rc": "node scripts/publish.mjs --tag rc --name lite-store-react",
+    "release:prod": "node scripts/publish.mjs --tag latest --name lite-store-react"
+  },
+  "devDependencies": {
+    "antd": "5.22.0",
+    "rspress": "2.0.0-beta.6",
+    "@rspack/cli": "1.4.3",
+    "@rspack/core": "1.4.3",
+    "@rsbuild/core": "1.4.3",
+    "@types/node": "20.11.24",
+    "@types/react": "18.2.61",
+    "@types/react-dom": "18.2.19",
+    "@typescript-eslint/eslint-plugin": "7.1.0",
+    "@typescript-eslint/parser": "7.1.0",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-react": "7.33.2",
+    "prettier": "3.6.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.8.3",
+    "vitest": "1.6.0"
+  }
+}
