@@ -1,6 +1,6 @@
 import { Inject, Controller, Get, Query } from '@midwayjs/core';
 import { Context } from '@midwayjs/koa';
-import { RAGSocketController } from '../service/user.service';
+import { RAGSocketController } from '../service/RAGSocketController.service';
 
 @Controller('/api')
 export class APIController {
