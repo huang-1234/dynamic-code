@@ -34,6 +34,8 @@ export class GithubService {
    * @param owner 仓库所有者
    * @param repo 仓库名称
    * @param fileExtensions 文件扩展名数组 (例如: ['.md', '.mdx'])
+   * @example /api/github/content?owner=prettier&repo=eslint-plugin-prettier&path=README.md
+   * @example /api/github/content?owner=prettier&repo=eslint-plugin-prettier&path=README.md&fileExtensions=.md,.mdx
    * @returns 文件内容数组，每个元素包含文件名和内容
    */
   async getFilesContent(
