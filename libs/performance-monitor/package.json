@@ -26,5 +26,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "react-intersection-observer": "^9.16.0"
+  }
 }
