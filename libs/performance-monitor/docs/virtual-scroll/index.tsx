@@ -5,6 +5,7 @@ import React, {
   useCallback,
   useDeferredValue
 } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface VirtualScrollProps {
   data: any[]; // 数据源
@@ -13,15 +14,30 @@ interface VirtualScrollProps {
   containerHeight: number; // 容器高度
   onLoadMore?: () => void; // 触底加载回调
   renderItem?: (item: any, index: number) => React.ReactNode; // 自定义渲染函数
+  loading?: boolean; // 是否正在加载
+  LoadingComponent?: React.ReactNode; // 自定义加载组件
 }
+
+// Loading 组件
+const Loading: React.FC = () => (
+  <div style={{
+    padding: '20px 0',
+    textAlign: 'center',
+    color: '#999'
+  }}>
+    加载中...
+  </div>
+);
 
 export function VirtualScroll(props: VirtualScrollProps) {
   const {
     data,
-    estimatedItemHeight = 27,
+    estimatedItemHeight = 60,
     bufferSize = 5,
     containerHeight,
     onLoadMore,
+    loading = false,
+    LoadingComponent = Loading,
     ...restProps
   } = props;
   // 1. 状态管理
@@ -195,6 +211,31 @@ export function VirtualScroll(props: VirtualScrollProps) {
           opacity: 0
         }}
       />
+
+      {/* Loading 区域 */}
+      <LoadingTrigger onLoadMore={onLoadMore} loading={loading} />
+    </div>
+  );
+};
+
+// LoadingTrigger 组件
+const LoadingTrigger: React.FC<{ onLoadMore?: () => void; loading?: boolean }> = ({ onLoadMore, loading }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    onChange: (inView) => {
+      if (inView && onLoadMore && !loading) {
+        onLoadMore();
+      }
+    },
+  });
+
+  return (
+    <div ref={ref} style={{
+      position: 'relative',
+      bottom: 0,
+      width: '100%'
+    }}>
+      {loading && <LoadingComponent />}
     </div>
   );
 };

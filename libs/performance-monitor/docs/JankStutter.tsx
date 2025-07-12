@@ -16,22 +16,21 @@ const App = () => {
   );
 
   const loadMore = useCallback(() => {
-    setTimeout(() => {
-      setItems(prev => {
-        const newItems = Array.from({ length: defaultPage.pageSize }, (_, i) => ({
-          id: prev.length + i,
-          content: `Item ${prev.length + i}`
-        }));
-        return [...prev, ...newItems];
-      });
-    }, 500);
+    setItems(prev => {
+      const newItems = Array.from({ length: defaultPage.pageSize }, (_, i) => ({
+        id: prev.length + i,
+        content: `Item ${prev.length + i}`
+      }));
+      console.log('newItems', newItems);
+      return [...prev, ...newItems];
+    });
   }, []);
 
   return (
     <VirtualScroll
       data={items}
       containerHeight={600}
-      estimatedItemHeight={20}
+      estimatedItemHeight={90}
       bufferSize={8}
       onLoadMore={loadMore}
       renderItem={(item) => (
