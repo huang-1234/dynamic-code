@@ -128,6 +128,32 @@ importers:
       rimraf: 5.0.5
       vitest: 1.6.0_cf7yh6uqccr5dw5gqkx3bs7kpi
 
+  libs/performance-monitor:
+    specifiers:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      react-dom: 19.1.0_react@19.1.0
+    devDependencies:
+      react: 19.1.0
+
+  packages/common-components:
+    specifiers:
+      '@rsbuild/plugin-react': ^1.3.3
+      '@rslib/core': ^0.10.5
+      '@types/react': ^19.1.8
+      react: ^19.1.0
+      react-dom: '>=16.9.0'
+      typescript: ^5.8.3
+    dependencies:
+      react-dom: 19.1.0_react@19.1.0
+    devDependencies:
+      '@rsbuild/plugin-react': 1.3.3_@rsbuild+core@1.4.3
+      '@rslib/core': 0.10.5_typescript@5.8.3
+      '@types/react': 19.1.8
+      react: 19.1.0
+      typescript: 5.8.3
+
   servers/rag-md:
     specifiers:
       '@midwayjs/bootstrap': ^3.12.0
@@ -2244,6 +2270,25 @@ packages:
     dependencies:
       '@rsbuild/core': 1.4.3
       rsbuild-plugin-dts: 0.10.4_cxvisq7jwfcvo3mfj4y2l6fovu
+      tinyglobby: 0.2.14
+      typescript: 5.8.3
+    dev: true
+
+  /@rslib/core/0.10.5_typescript@5.8.3:
+    resolution: {integrity: sha512-kThW/bkKgja++/AykW1fJaRK+TAiW3+ZSWiCKJxHHS87ZQc/PeRTxk2A0upHi7R3CyfdGgXGNcEBPoeBUj4zYw==}
+    engines: {node: '>=16.7.0'}
+    hasBin: true
+    peerDependencies:
+      '@microsoft/api-extractor': ^7
+      typescript: ^5
+    peerDependenciesMeta:
+      '@microsoft/api-extractor':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@rsbuild/core': 1.4.3
+      rsbuild-plugin-dts: 0.10.5_cxvisq7jwfcvo3mfj4y2l6fovu
       tinyglobby: 0.2.14
       typescript: 5.8.3
     dev: true
@@ -11541,6 +11586,28 @@ packages:
 
   /rsbuild-plugin-dts/0.10.4_cxvisq7jwfcvo3mfj4y2l6fovu:
     resolution: {integrity: sha512-/Zl9hgo1L2cpeKnMvAi0ws57Heo6X9wE07dUwdgb5NMEQSXQaHRv1eeRDKpzNYedaWl+yAIvL2IYK4GcCR0y4w==}
+    engines: {node: '>=16.7.0'}
+    peerDependencies:
+      '@microsoft/api-extractor': ^7
+      '@rsbuild/core': 1.x
+      typescript: ^5
+    peerDependenciesMeta:
+      '@microsoft/api-extractor':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@ast-grep/napi': 0.37.0
+      '@rsbuild/core': 1.4.3
+      magic-string: 0.30.17
+      picocolors: 1.1.1
+      tinyglobby: 0.2.14
+      tsconfig-paths: 4.2.0
+      typescript: 5.8.3
+    dev: true
+
+  /rsbuild-plugin-dts/0.10.5_cxvisq7jwfcvo3mfj4y2l6fovu:
+    resolution: {integrity: sha512-gjngxgV0RD4T7aKDTf7kho9IUBNjHR+Y3krYwNEnUakOiuk9Fn03MxVCcASyCsPY+H7HooI8P8wXZoPhiSWSZA==}
     engines: {node: '>=16.7.0'}
     peerDependencies:
       '@microsoft/api-extractor': ^7

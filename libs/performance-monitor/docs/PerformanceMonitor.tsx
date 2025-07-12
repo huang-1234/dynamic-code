@@ -1,6 +1,6 @@
-import { Button, message } from '@m-ui/react';
+import { Button, message } from 'antd';
 
-import { PerformanceMonitor } from '@es/performance-monitor';
+import { PerformanceMonitor } from '../src';
 import React from 'react';
 
 const TestDemo1 = () => {

@@ -1,0 +1,30 @@
+{
+  "name": "performance-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "rspress dev",
+    "docs:build": "rspress build",
+    "docs:preview": "rspress preview",
+    "docs:serve": "rspress serve",
+    "dev": "rslib dev",
+    "test": "vitest run",
+    "clean": "rimraf dist",
+    "prebuild": "rimraf dist",
+    "build": "cross-env NODE_ENV=production rslib build",
+    "prepublishOnly": "npm run build",
+    "prepublishOnlyAndTest": "npm run test && npm run build",
+    "release": "node ../../scripts/publish.js --tag alpha --name lite-store-react",
+    "release:beta": "node ../../scripts/publish.js --tag beta --name lite-store-react",
+    "release:rc": "node ../../scripts/publish.js --tag rc --name lite-store-react",
+    "release:prod": "node ../../scripts/publish.js --tag latest --name lite-store-react"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

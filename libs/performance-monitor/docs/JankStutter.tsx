@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-import { useJankStutter } from '@es/performance-monitor';
+import { useJankStutter } from '../src';
 
 // 使用 antd 编写一个渲染 100 个 div 的组件、支持下拉加载更多
 const Div100 = () => {
