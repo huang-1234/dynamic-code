@@ -1,51 +1,44 @@
-const express = require('express');
-const app = express();
-const { content } = require('./article');
+const Koa = require('koa');
+const sse = require('./koa-sse/index'); // 导入SSE中间件
 
-app.get('/sse-stream', (req, res) => {
-  // 设置SSE响应头，添加charset=utf-8确保中文正确显示
-  res.writeHead(200, {
-    'Content-Type': 'text/event-stream; charset=utf-8',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive'
-  });
+const app = new Koa();
 
-  /**
-   * @desc 通过SSE发送数据 content.slice(start, end)、并不断递增
-   * @param {number} start 开始位置
-   * @param {number} end 结束位置
-   * @param {number} gap 间隔
-   */
-  let [start, end, gap] = [0, 100, 100];
+// 初始化Redis集群（生产环境需要）
+// sse.initRedisCluster('redis://your-redis-url:6379');
 
-  // 每隔1秒发送一次数据
-  const timer = setInterval(() => {
-    // 如果开始位置已经超过内容长度，说明发送完毕
-    if (start >= content.length) {
-      clearInterval(timer);
-      res.write('event: close\ndata: 传输完成\n\n');
-      res.end();
-      return;
-    }
+// 使用安全认证中间件（可选）
+// app.use(sse.authMiddleware());
 
-    // 确保end不会超过content长度
-    const currentEnd = Math.min(end, content.length);
+// 使用SSE中间件
+app.use(sse.sseMiddleware());
 
-    // 获取当前片段并进行 UTF-8 编码
-    const chunk = content.slice(start, currentEnd);
-
-    // 发送数据，确保使用 UTF-8 编码
-    res.write(`data: ${chunk}\n\n`, 'utf8');
-
-    // 更新start和end位置
-    start = end;
-    end = start + gap;
-  }, 100);
-
-  // 客户端断开连接时清理定时器
-  req.on('close', () => {
-    clearInterval(timer);
-  });
+// 示例路由 - 发送通知到所有客户端
+app.use(async (ctx) => {
+  if (ctx.path === '/notify') {
+    // 广播消息到所有客户端
+    sse.broadcast({ message: 'System update' }, 'notification');
+    ctx.body = 'Notification sent to all clients';
+  }
 });
 
-app.listen(3000, () => console.log(`Server running on: http://localhost:${3000}/sse-stream`));
+// 示例路由 - 发送批处理消息
+app.use(async (ctx) => {
+  if (ctx.path === '/batch') {
+    // 创建批处理发送器
+    const batchSender = sse.createBatchSender();
+
+    // 模拟批量数据
+    for (let i = 0; i < 50; i++) {
+      batchSender({ id: i, value: Math.random() });
+    }
+
+    ctx.body = 'Batch data sent';
+  }
+});
+
+// 启动服务器
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`SSE server running on port ${PORT}`);
+  console.log(`SSE endpoint: http://localhost:${PORT}/sse`);
+});
