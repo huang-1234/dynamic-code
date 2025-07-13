@@ -235,7 +235,7 @@ const LoadingTrigger: React.FC<{ onLoadMore?: () => void; loading?: boolean }> =
       bottom: 0,
       width: '100%'
     }}>
-      {loading && <LoadingComponent />}
+      {loading && <Loading />}
     </div>
   );
 };
