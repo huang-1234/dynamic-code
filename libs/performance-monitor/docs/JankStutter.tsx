@@ -3,6 +3,7 @@ import React, {
   useCallback,
 } from 'react';
 import { VirtualScroll } from './virtual-scroll';
+import { useJankStutter } from '../src';
 
 const defaultPage = {
   pageSize: 20,
@@ -25,6 +26,8 @@ const App = () => {
       return [...prev, ...newItems];
     });
   }, []);
+
+  useJankStutter({});
 
   return (
     <VirtualScroll
