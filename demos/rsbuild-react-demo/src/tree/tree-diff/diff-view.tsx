@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Tree } from 'antd';
 import type { DataNode } from 'antd/es/tree';
-import { mergeProtocolTrees, TreeData, TreeNode } from './mergeProtocolTrees';
+import { mergeProtocolTrees, type TreeNode, type TreeData } from './mergeProtocolTrees';
 
 interface DiffViewProps {
   treeA: TreeData;

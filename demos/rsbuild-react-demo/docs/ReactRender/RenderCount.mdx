@@ -1,0 +1,56 @@
+```tsx
+
+import { Button } from "antd";
+import React from "react";
+import { useState } from "react";
+
+
+// A组件（不依赖任何props/state）
+function A() {
+  console.log("A组件渲染 - 未用memo且无依赖");
+  return <div>A组件</div>;
+}
+
+// B组件（依赖变动的count属性）
+function B({ count }: any) {
+  console.log(`B组件渲染 - count变化: ${count}`);
+  return <div>B组件: {count}</div>;
+}
+
+// C组件（用memo包裹，依赖固定值age）
+const C = ({ age }: any) => {
+  console.log(`C组件渲染 - age值: ${age}`);
+  return <div>C组件: {age}</div>;
+};
+
+// 使用React.memo优化
+const MemoC = React.memo(C);
+
+function RenderCount() {
+  const [count, setCount] = useState(0);
+  const age = 18; // 固定值
+
+  // 触发5次更新的按钮
+  const updateFiveTimes = () => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setCount((prev) => prev + 1);
+      i++;
+      if (i >= 5) clearInterval(interval);
+    }, 300);
+  };
+
+  console.log("RenderCount组件渲染，count:", count);
+
+  return (
+    <div>
+      <Button onClick={updateFiveTimes}>触发5次更新</Button>
+      <A />
+      <B count={count} />
+      <MemoC age={age} />
+    </div>
+  );
+}
+
+export default RenderCount;
+```

@@ -1,5 +1,5 @@
 import React from 'react';
-import DiffView from '../../src/tree/tree-diff/diff-view';
+import DiffView from '@/tree/tree-diff/diff-view';
 
 const treeA = {
   root: {
@@ -35,7 +35,7 @@ const treeB = {
   }
 };
 
-const Example: React.FC = () => {
+export const ExampleDiffView: React.FC = () => {
   return (
     <div style={{ padding: '20px' }}>
       <h2>树形结构对比示例</h2>
@@ -44,4 +44,4 @@ const Example: React.FC = () => {
   );
 };
 
-export default Example;
+export default ExampleDiffView

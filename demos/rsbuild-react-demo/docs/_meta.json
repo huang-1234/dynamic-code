@@ -1,7 +1,22 @@
 [
   {
-    "text": "Demo",
-    "link": "/demo/index",
-    "activeMatch": "^/demo/"
+    "text": "Algorithm",
+    "link": "/Algorithm/",
+    "activeMatch": "^/Algorithm/"
+  },
+  {
+    "text": "Tree",
+    "link": "/Tree",
+    "activeMatch": "^/Tree/"
+  },
+  {
+    "text": "Hooks",
+    "link": "/hooks",
+    "activeMatch": "^/hooks/"
+  },
+  {
+    "text": "ReactRender",
+    "link": "/ReactRender",
+    "activeMatch": "^/ReactRender/"
   }
 ]
