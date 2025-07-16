@@ -1,0 +1,43 @@
+```tsx
+import React, { useState, useMemo } from 'react';
+import { Tree, Tag } from 'antd';
+
+const SegmentTreeVisualizer = ({ segmentTree }) => {
+  const [expandedKeys, setExpandedKeys] = useState([]);
+
+  // 线段树转 treeData（动态生成子节点）
+  const treeData = useMemo(() => {
+    const buildTreeData = (node) => {
+      if (!node) return null;
+      const isExpanded = expandedKeys.includes(`${node.start}-${node.end}`);
+      return {
+        title: `[${node.start},${node.end}] Sum:${node.sum}`,
+        key: `${node.start}-${node.end}`,
+        segmentData: node,
+        children: isExpanded
+          ? [buildTreeData(node.left), buildTreeData(node.right)].filter(Boolean)
+          : null,
+      };
+    };
+    return [buildTreeData(segmentTree.root)];
+  }, [segmentTree, expandedKeys]);
+
+  return (
+    <Tree
+      treeData={treeData}
+      expandedKeys={expandedKeys}
+      onExpand={setExpandedKeys}
+      titleRender={(node) => (
+        <div>
+          <span>{node.title}</span>
+          {node.segmentData.lazy !== 0 && (
+            <Tag color="volcano" style={{ marginLeft: 10 }}>
+              Lazy: {node.segmentData.lazy}
+            </Tag>
+          )}
+        </div>
+      )}
+    />
+  );
+};
+```
