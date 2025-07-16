@@ -1,0 +1,2 @@
+* text=auto eol=lf  # 所有文本文件强制使用 LF
+*.sh eol=lf         # 针对脚本文件额外指定[6,8](@ref)。
