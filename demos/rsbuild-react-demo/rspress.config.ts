@@ -7,9 +7,7 @@ export default defineConfig({
   root: 'docs',
   title: 'Lite Store React',
   description: 'Lite Store React',
-  plugins: [pluginPlayground({
-
-  }) as any],
+  plugins: [pluginPlayground() as any],
   themeConfig: {
     socialLinks: [
       {
