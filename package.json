@@ -20,11 +20,13 @@
     "release:prod": "node scripts/publish.mjs --tag latest --name lite-store-react"
   },
   "devDependencies": {
+    "@rspress/plugin-playground": "1.44.0",
     "antd": "5.22.0",
     "rspress": "2.0.0-beta.6",
     "@rspack/cli": "1.4.3",
     "@rspack/core": "1.4.3",
     "@rsbuild/core": "1.4.3",
+    "ts-node": "10.9.2",
     "@types/node": "20.11.24",
     "@types/react": "18.2.61",
     "@types/react-dom": "18.2.19",

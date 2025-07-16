@@ -1,6 +1,11 @@
 import { defineConfig } from '@rslib/core';
 
+const { pluginNodePolyfill } = require('@rsbuild/plugin-node-polyfill');
+
+
 export default defineConfig({
+
+  plugins: [pluginNodePolyfill()],
   lib: [
     {
       format: 'esm',

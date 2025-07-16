@@ -15,12 +15,21 @@
     "dist"
   ],
   "scripts": {
+    "docs:dev": "rspress dev",
+    "docs:build": "rspress build",
+    "docs:preview": "rspress preview",
+    "docs:serve": "rspress serve",
     "build": "rslib build",
     "dev": "rslib build --watch"
   },
   "devDependencies": {
-    "@rslib/core": "^0.10.6",
-    "@types/node": "^22.16.4",
-    "typescript": "^5.8.3"
+    "@rslib/core": "0.10.5",
+    "@rspress/plugin-playground": "1.44.0",
+    "@types/node": "20.11.24",
+    "ts-node": "10.9.2",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@rsbuild/plugin-node-polyfill": "^1.3.1"
   }
 }

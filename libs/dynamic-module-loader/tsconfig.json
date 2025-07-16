@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "lib": ["ES2021"],
+    "lib": ["ES2021", "dom", "DOM.Iterable"],
+    "target": "es2015",
     "module": "ESNext",
     "noEmit": true,
     "strict": true,
@@ -9,7 +10,11 @@
     "resolveJsonModule": true,
     "moduleResolution": "bundler",
     "useDefineForClassFields": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "baseUrl": ".",
+    "paths": {
+      "dynamic-module-loader/*": ["src/*"]
+    }
   },
   "include": ["src"]
 }
