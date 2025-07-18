@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dc": "rspress dev",
     "docs:dev": "rspress dev",
     "docs:build": "rspress build",
     "docs:preview": "rspress preview",
