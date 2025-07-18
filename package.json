@@ -19,6 +19,9 @@
     "release:rc": "node scripts/publish.mjs --tag rc --name lite-store-react",
     "release:prod": "node scripts/publish.mjs --tag latest --name lite-store-react"
   },
+  "resolutions": {
+    "monaco-editor":"0.25.0"
+  },
   "devDependencies": {
     "@rspress/plugin-playground": "^2.0.0-beta.20",
     "antd": "5.22.0",

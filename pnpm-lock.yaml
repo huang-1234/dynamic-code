@@ -1,5 +1,8 @@
 lockfileVersion: 5.4
 
+overrides:
+  monaco-editor: 0.25.0
+
 importers:
 
   .:
@@ -111,7 +114,7 @@ importers:
       '@rsbuild/plugin-node-polyfill': 1.3.1_@rsbuild+core@1.4.7
     devDependencies:
       '@rslib/core': 0.10.5_typescript@5.8.3
-      '@rspress/plugin-playground': 2.0.0-beta.21_mbijmkgutrycpo5va6mguqj3pu
+      '@rspress/plugin-playground': 2.0.0-beta.21_we6sndmllohsindwiieqih3voe
       '@types/node': 20.11.24
       ts-node: 10.9.2_fu6wo5cka5cfy5g6u6uaoryskm
       typescript: 5.8.3
@@ -1672,21 +1675,6 @@ packages:
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
     dev: true
 
-  /@mdx-js/loader/3.1.0:
-    resolution: {integrity: sha512-xU/lwKdOyfXtQGqn3VnJjlDrmKXEvMi1mgYxVmukEUtVycIz1nh7oQ40bKTd4cA7rLStqu0740pnhGYxGoqsCg==}
-    peerDependencies:
-      webpack: '>=5'
-    peerDependenciesMeta:
-      webpack:
-        optional: true
-    dependencies:
-      '@mdx-js/mdx': 3.1.0
-      source-map: 0.7.4
-    transitivePeerDependencies:
-      - acorn
-      - supports-color
-    dev: true
-
   /@mdx-js/loader/3.1.0_acorn@8.15.0:
     resolution: {integrity: sha512-xU/lwKdOyfXtQGqn3VnJjlDrmKXEvMi1mgYxVmukEUtVycIz1nh7oQ40bKTd4cA7rLStqu0740pnhGYxGoqsCg==}
     peerDependencies:
@@ -1697,38 +1685,6 @@ packages:
     dependencies:
       '@mdx-js/mdx': 3.1.0_acorn@8.15.0
       source-map: 0.7.4
-    transitivePeerDependencies:
-      - acorn
-      - supports-color
-    dev: true
-
-  /@mdx-js/mdx/3.1.0:
-    resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
-    dependencies:
-      '@types/estree': 1.0.8
-      '@types/estree-jsx': 1.0.5
-      '@types/hast': 3.0.4
-      '@types/mdx': 2.0.13
-      collapse-white-space: 2.1.0
-      devlop: 1.1.0
-      estree-util-is-identifier-name: 3.0.0
-      estree-util-scope: 1.0.0
-      estree-walker: 3.0.3
-      hast-util-to-jsx-runtime: 2.3.6
-      markdown-extensions: 2.0.0
-      recma-build-jsx: 1.0.0
-      recma-jsx: 1.0.0
-      recma-stringify: 1.0.0
-      rehype-recma: 1.0.0
-      remark-mdx: 3.1.0
-      remark-parse: 11.0.0
-      remark-rehype: 11.1.2
-      source-map: 0.7.4
-      unified: 11.0.5
-      unist-util-position-from-estree: 2.0.0
-      unist-util-stringify-position: 4.0.0
-      unist-util-visit: 5.0.0
-      vfile: 6.0.3
     transitivePeerDependencies:
       - acorn
       - supports-color
@@ -3149,12 +3105,12 @@ packages:
       - webpack-hot-middleware
     dev: true
 
-  /@rspress/core/2.0.0-beta.21_@types+react@19.1.8:
+  /@rspress/core/2.0.0-beta.21_a7mb7nj37vzz2nz34qf7nlwppa:
     resolution: {integrity: sha512-dBAvUi2CWw0cyEKE2vafHylzEuZxKcQ+nysLr/cIjrau6s7p3ghajEXYT+nLrpzv2bBeUDURmRYKSuPch+bWzA==}
     engines: {node: '>=18.0.0'}
     dependencies:
-      '@mdx-js/loader': 3.1.0
-      '@mdx-js/mdx': 3.1.0
+      '@mdx-js/loader': 3.1.0_acorn@8.15.0
+      '@mdx-js/mdx': 3.1.0_acorn@8.15.0
       '@mdx-js/react': 3.1.0_j34s3v6eqkmb7bf44dvxgw2kha
       '@rsbuild/core': 1.4.7
       '@rsbuild/plugin-react': 1.3.4_@rsbuild+core@1.4.7
@@ -3323,7 +3279,7 @@ packages:
       - supports-color
     dev: true
 
-  /@rspress/plugin-playground/2.0.0-beta.21_mbijmkgutrycpo5va6mguqj3pu:
+  /@rspress/plugin-playground/2.0.0-beta.21_we6sndmllohsindwiieqih3voe:
     resolution: {integrity: sha512-Dbe84/+rJMNPg0VxKjaFQFaL1Hv2Q3or1kNrTEej/DteLAM6BeX4V0op3I7OAWtI42BdVCHpJjM0FyKnT6B29Q==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -3331,14 +3287,14 @@ packages:
       react-router-dom: ^6.8.1
       rspress: ^2.0.0-beta.21
     dependencies:
-      '@mdx-js/mdx': 3.1.0
+      '@mdx-js/mdx': 3.1.0_acorn@8.15.0
       '@monaco-editor/react': 4.7.0_e2b7566oqnkqfeprz6j3kvyc2i
       '@oxidation-compiler/napi': 0.2.0
       react: 19.1.0
       react-router-dom: 6.30.1_j6k6oay3ugsr56slyfvma2drry
       remark-gfm: 4.0.1
       rspack-plugin-virtual-module: 1.0.1
-      rspress: 2.0.0-beta.21_@types+react@19.1.8
+      rspress: 2.0.0-beta.21_a7mb7nj37vzz2nz34qf7nlwppa
       unist-util-visit: 5.0.0
     transitivePeerDependencies:
       - acorn
@@ -4855,12 +4811,6 @@ packages:
       mime-types: 3.0.1
       negotiator: 1.0.0
     dev: false
-
-  /acorn-jsx/5.3.2:
-    resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
-    peerDependencies:
-      acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dev: true
 
   /acorn-jsx/5.3.2_acorn@7.4.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -12578,18 +12528,6 @@ packages:
       vfile: 6.0.3
     dev: true
 
-  /recma-jsx/1.0.0:
-    resolution: {integrity: sha512-5vwkv65qWwYxg+Atz95acp8DMu1JDSqdGkA2Of1j6rCreyFUE/gp15fC8MnGEuG1W68UKjM6x6+YTWIh7hZM/Q==}
-    dependencies:
-      acorn-jsx: 5.3.2
-      estree-util-to-js: 2.0.0
-      recma-parse: 1.0.0
-      recma-stringify: 1.0.0
-      unified: 11.0.5
-    transitivePeerDependencies:
-      - acorn
-    dev: true
-
   /recma-jsx/1.0.0_acorn@8.15.0:
     resolution: {integrity: sha512-5vwkv65qWwYxg+Atz95acp8DMu1JDSqdGkA2Of1j6rCreyFUE/gp15fC8MnGEuG1W68UKjM6x6+YTWIh7hZM/Q==}
     dependencies:
@@ -13079,12 +13017,12 @@ packages:
       - webpack-hot-middleware
     dev: true
 
-  /rspress/2.0.0-beta.21_@types+react@19.1.8:
+  /rspress/2.0.0-beta.21_a7mb7nj37vzz2nz34qf7nlwppa:
     resolution: {integrity: sha512-dgporOEoGogsxI4y/xAgnmENL8S/YIUi8c8JkJqmyNQET+eyZ9jF83WopP7YaxyDGY1j43cXiFf0bhUMVB8i8w==}
     hasBin: true
     dependencies:
       '@rsbuild/core': 1.4.7
-      '@rspress/core': 2.0.0-beta.21_@types+react@19.1.8
+      '@rspress/core': 2.0.0-beta.21_a7mb7nj37vzz2nz34qf7nlwppa
       '@rspress/shared': 2.0.0-beta.21
       cac: 6.7.14
       chokidar: 3.6.0
