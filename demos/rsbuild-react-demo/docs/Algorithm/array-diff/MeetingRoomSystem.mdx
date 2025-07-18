@@ -1,0 +1,66 @@
+
+```ts
+import { AnalyticsRoomSystem } from '@/array-operation'
+// ================== 使用示例 ==================
+// 创建分析系统（12小时制）
+const analyticsRoom = new AnalyticsRoomSystem(12);
+
+// 预定会议室
+analyticsRoom.bookRoom(1, 3, "Alice");
+analyticsRoom.bookRoom(2, 4, "Bob");
+analyticsRoom.bookRoom(5, 7, "Charlie");
+analyticsRoom.bookRoom(8, 10, "Alice");
+const booking5 = analyticsRoom.bookRoom(9, 11, "Bob");
+
+// 取消一个预定
+analyticsRoom.cancelBooking(booking5);
+
+// 可视化当前状态
+console.log("当前资源状态:");
+console.log(analyticsRoom.visualize());
+console.log(" 0 1 2 3 4 5 6 7 8 9 10");
+
+// 获取统计信息
+console.log("\n统计信息:");
+console.log("历史占用率:", analyticsRoom.getHistoricalOccupancyRate().toFixed(2));
+console.log("当前占用率:", analyticsRoom.getCurrentOccupancyRate().toFixed(2));
+
+console.log("\n时间段分析:");
+analyticsRoom.getSlotStatistics().forEach(stat => {
+  console.log(
+    `时段 ${stat.hour}:00 - ` +
+    `当前: ${stat.currentStatus}, ` +
+    `历史占用: ${stat.occupancyPercentage}`
+  );
+});
+
+console.log("\n热点时段:");
+analyticsRoom.getPeakHours().forEach(({ hour, count }) => {
+  console.log(`  时段 ${hour}:00 - ${count} 次请求`);
+});
+
+console.log("\n优化建议:");
+analyticsRoom.getOptimizationSuggestions().forEach(suggestion => {
+  console.log(suggestion);
+});
+
+// 测试批量操作
+console.log("\n批量操作测试:");
+const bookingsToAdd = [
+  { start: 0, end: 1, user: "Admin" },
+  { start: 3, end: 4, user: "Admin" },
+  { start: 6, end: 7, user: "Admin" }
+];
+
+const newBookingIds = analyticsRoom.batchBook(bookingsToAdd);
+console.log("批量预定结果:", newBookingIds.length > 0 ? "成功" : "失败");
+
+console.log("新状态:", analyticsRoom.visualize());
+
+console.log("\nAlice的预定记录:");
+console.log(analyticsRoom.getUserBookings("Alice"));
+
+// 寻找空闲时段
+console.log("\n寻找2小时空闲时段:");
+console.log(analyticsRoom.findAvailableSlots(2));
+```

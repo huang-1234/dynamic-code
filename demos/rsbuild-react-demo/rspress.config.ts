@@ -1,13 +1,13 @@
 import { defineConfig } from 'rspress/config';
 
-import { pluginPlayground } from '@rspress/plugin-playground';
+// import { pluginPlayground } from '@rspress/plugin-playground';
 
 export default defineConfig({
   // 文档根目录
   root: 'docs',
-  title: 'Lite Store React',
-  description: 'Lite Store React',
-  plugins: [pluginPlayground() as any],
+  title: 'rsbuild-react-demo',
+  description: 'rsbuild-react-demo',
+  // plugins: [pluginPlayground() as any],
   themeConfig: {
     socialLinks: [
       {

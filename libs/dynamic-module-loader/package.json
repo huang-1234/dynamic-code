@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@rslib/core": "0.10.5",
-    "@rspress/plugin-playground": "1.44.0",
+    "@rspress/plugin-playground": "^2.0.0-beta.20",
     "@types/node": "20.11.24",
     "ts-node": "10.9.2",
     "typescript": "5.8.3"
