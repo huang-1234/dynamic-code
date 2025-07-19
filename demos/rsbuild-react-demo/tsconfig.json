@@ -22,5 +22,8 @@
       "@/*": ["./src/*"]
     }
   },
+  "mdx": {
+    "checkMdx": true
+  },
   "include": ["docs", "theme", "rspress.config.ts", "src/**/*"]
 }

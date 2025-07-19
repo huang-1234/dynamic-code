@@ -1,5 +1,7 @@
 import React from 'react';
-import DiffView from '@/tree/tree-diff/diff-view';
+import DiffView from '../../src/tree/tree-diff/diff-view';
+
+
 
 const treeA = {
   root: {
