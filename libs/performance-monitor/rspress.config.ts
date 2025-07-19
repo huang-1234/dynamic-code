@@ -3,8 +3,8 @@ import { defineConfig } from 'rspress/config';
 export default defineConfig({
   // 文档根目录
   root: 'docs',
-  title: 'Lite Store React',
-  description: 'Lite Store React',
+  title: '性能指标监控',
+  description: '性能指标监控',
   themeConfig: {
     socialLinks: [
       {

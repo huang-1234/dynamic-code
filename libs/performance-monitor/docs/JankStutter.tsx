@@ -11,7 +11,7 @@ const defaultPage = {
 }
 
 // 使用示例
-const App = () => {
+const JankStutter = () => {
   const [items, setItems] = useState(() =>
     Array.from({ length: defaultPage.pageSizeInit }, (_, i) => ({ id: i, content: `Item ${i}` }))
   );
@@ -56,4 +56,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default JankStutter;

@@ -1,9 +1,9 @@
 import { Button, message } from 'antd';
 
-import { PerformanceMonitor } from '../src';
+import { PerformanceMonitor } from '../../src';
 import React from 'react';
 
-const TestDemo1 = () => {
+const PerformanceMetricsDemo = () => {
 
   React.useEffect(() => {
     const monitor = new PerformanceMonitor({ // 创建监控实例并启动
@@ -83,4 +83,4 @@ const TestDemo1 = () => {
   );
 };
 
-export default TestDemo1;
+export default PerformanceMetricsDemo;

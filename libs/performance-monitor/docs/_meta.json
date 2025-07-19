@@ -1,7 +1,17 @@
 [
   {
-    "text": "Demo",
-    "link": "/demo/index",
-    "activeMatch": "^/demo/"
+    "text": "性能指标监控",
+    "link": "/MonitorPerformance/MonitorPerformance",
+    "activeMatch": "^/MonitorPerformance/"
+  },
+  {
+    "text": "卡顿监控",
+    "link": "/MonitorPerformance/MonitorJank",
+    "activeMatch": "^/MonitorPerformance/"
+  },
+  {
+    "text": "卡顿指标面板",
+    "link": "/JankMetricsDemo",
+    "activeMatch": "^/MonitorPerformance/"
   }
 ]
