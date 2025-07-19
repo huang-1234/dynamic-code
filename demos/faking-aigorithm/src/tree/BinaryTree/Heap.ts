@@ -16,6 +16,66 @@ abstract class Heap<T> {
   constructor(heapType: HeapType) {
     this.heapType = heapType;
   }
+    // 新增：从数组构建堆的公共接口
+  protected buildHeap(data: T[]): void {
+    if (data.length === 0) return;
+
+    // 创建节点数组
+    const nodes: TreeNode<T>[] = data.map(val => new TreeNode(val));
+    this.count = nodes.length;
+
+    // 构建完全二叉树结构
+    for (let i = 0; i < this.count; i++) {
+      const leftIndex = 2 * i + 1;
+      const rightIndex = 2 * i + 2;
+
+      if (leftIndex < this.count) {
+        nodes[i].left = nodes[leftIndex];
+      }
+      if (rightIndex < this.count) {
+        nodes[i].right = nodes[rightIndex];
+      }
+    }
+
+    this.root = nodes[0];
+    this.lastNode = nodes[this.count - 1];
+
+    // 堆化操作 (Floyd算法)
+    this.heapifyEntireTree();
+  }
+
+  // 新增：整树堆化方法 (时间复杂度O(n))
+  protected heapifyEntireTree(): void {
+    // 计算最后一个非叶节点索引
+    const lastNonLeafIndex = Math.floor(this.count / 2) - 1;
+
+    // 从最后一个非叶节点开始向前堆化
+    for (let i = lastNonLeafIndex; i >= 0; i--) {
+      const node = this.findNodeByIndex(i);
+      if (node) {
+        this.heapifyDown(node);
+      }
+    }
+  }
+
+  // 新增：通过索引定位节点
+  protected findNodeByIndex(targetIndex: number): TreeNode<T> | null {
+    if (targetIndex < 0 || targetIndex >= this.count) return null;
+
+    // 通过DFS顺序索引定位
+    let count = 0;
+    const stack: TreeNode<T>[] = [this.root!];
+
+    while (stack.length) {
+      const node = stack.pop()!;
+      if (count++ === targetIndex) return node;
+
+      if (node.right) stack.push(node.right);
+      if (node.left) stack.push(node.left);
+    }
+
+    return null;
+  }
 
   /**
    * 插入元素（核心方法）
@@ -140,15 +200,33 @@ abstract class Heap<T> {
 }
 
 /**
- * 大顶堆实现
+ * @decs 比较数字大小的基类
  */
-class MaxHeap<T> extends Heap<T> {
+export class DataCompare<T> {
+  constructor(private heapType: HeapType) {
+  }
+
+  /**
+   * @desc 比较函数
+   * @param v1
+   * @param v2
+   * @returns
+   */
+  compare(v1: T, v2: T): number {
+    return Number(v1) - Number(v2); // 数字类型比较
+  }
+}
+
+/**
+ * @desc 大顶堆实现
+ */
+export class MaxHeap<T> extends Heap<T> {
   constructor() {
     super(HeapType.MAX);
   }
 
   /**
-   * 比较函数
+   * @desc 比较函数
    * @param parentVal
    * @param childVal
    * @returns
@@ -158,13 +236,75 @@ class MaxHeap<T> extends Heap<T> {
   }
 
   /**
-   * 比较函数
+   * @desc 比较函数
    * @param v1
    * @param v2
    * @returns
    */
   protected compare(v1: T, v2: T): number {
     return Number(v1) - Number(v2); // 数字类型比较
+  }
+
+    // 新增：从数组构建堆的公共接口
+  buildHeap(data: T[]): void {
+    if (data.length === 0) return;
+
+    // 创建节点数组
+    const nodes: TreeNode<T>[] = data.map(val => new TreeNode(val));
+    this.count = nodes.length;
+
+    // 构建完全二叉树结构
+    for (let i = 0; i < this.count; i++) {
+      const leftIndex = 2 * i + 1;
+      const rightIndex = 2 * i + 2;
+
+      if (leftIndex < this.count) {
+        nodes[i].left = nodes[leftIndex];
+      }
+      if (rightIndex < this.count) {
+        nodes[i].right = nodes[rightIndex];
+      }
+    }
+
+    this.root = nodes[0];
+    this.lastNode = nodes[this.count - 1];
+
+    // 堆化操作 (Floyd算法)
+    this.heapifyEntireTree();
+  }
+
+  // 新增：整树堆化方法 (时间复杂度O(n))
+  protected heapifyEntireTree(): void {
+
+    // 计算最后一个非叶节点索引
+    const lastNonLeafIndex = Math.floor(this.count / 2) - 1;
+
+    // 从最后一个非叶节点开始向前堆化
+    for (let i = lastNonLeafIndex; i >= 0; i--) {
+      const node = this.findNodeByIndex(i);
+      if (node) {
+        this.heapifyDown(node);
+      }
+    }
+  }
+
+  // 新增：通过索引定位节点
+  protected findNodeByIndex(targetIndex: number): TreeNode<T> | null {
+    if (targetIndex < 0 || targetIndex >= this.count) return null;
+
+    // 通过DFS顺序索引定位
+    let count = 0;
+    const stack: TreeNode<T>[] = [this.root!];
+
+    while (stack.length) {
+      const node = stack.pop()!;
+      if (count++ === targetIndex) return node;
+
+      if (node.right) stack.push(node.right);
+      if (node.left) stack.push(node.left);
+    }
+
+    return null;
   }
 
   /**
