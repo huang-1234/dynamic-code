@@ -1,3 +1,4 @@
+import { TreeNode } from './base';
 // 堆类型枚举
 enum HeapType {
   MAX,
@@ -7,7 +8,7 @@ enum HeapType {
 /**
  * 抽象堆基类
  */
-abstract class Heap<T> {
+export abstract class Heap<T> {
   protected root: TreeNode<T> | null = null;
   protected lastNode: TreeNode<T> | null = null;
   protected count = 0;

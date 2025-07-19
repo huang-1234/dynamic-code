@@ -1,5 +1,5 @@
 // 树节点泛型类
-class TreeNode<T> {
+export class TreeNode<T> {
   val: T;
   left: TreeNode<T> | null;
   right: TreeNode<T> | null;
@@ -16,7 +16,7 @@ class TreeNode<T> {
 }
 
 // 二叉树操作类
-class BinaryTree<T> {
+export class BinaryTree<T> {
   root: TreeNode<T> | null;
 
   constructor(root: TreeNode<T> | null = null) {
