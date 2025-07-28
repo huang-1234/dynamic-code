@@ -198,10 +198,10 @@ describe('PerformanceMonitor', () => {
         metrics: { FCP: 1500, LCP: 2200, CLS: 0.05 },
         environment: { deviceType: 'desktop' }
       }),
-      readAsText: vi.fn(function() {
-        this.onload && this.onload();
+      readAsText: vi.fn(function(this: { onload: (() => void) | null }) {
+        if (this.onload) this.onload();
       }),
-      onload: null
+      onload: null as (() => void) | null
     };
 
     vi.spyOn(global, 'FileReader').mockImplementation(() => mockReader as any);
