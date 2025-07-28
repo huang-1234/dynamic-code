@@ -156,14 +156,18 @@ importers:
 
   libs/performance-monitor:
     specifiers:
+      '@types/jsdom': ^21.1.7
+      jsdom: ^26.1.0
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
       react-intersection-observer: ^9.16.0
     dependencies:
+      react: 19.1.0
       react-dom: 19.1.0_react@19.1.0
     devDependencies:
-      react: 19.1.0
-      react-intersection-observer: 9.16.0_j6k6oay3ugsr56slyfvma2drry
+      '@types/jsdom': 21.1.7
+      jsdom: 26.1.0
+      react-intersection-observer: 9.16.0_react@19.1.0
 
   packages/common-components:
     specifiers:
@@ -4249,6 +4253,14 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
+  /@types/jsdom/21.1.7:
+    resolution: {integrity: sha512-yOriVnggzrnQ3a9OKOCxaVuSug3w3/SbOj5i7VwXWZEyUNl3bLF9V3MfxGbZKuwqJOQyRfqXyROBB1CoZLFWzA==}
+    dependencies:
+      '@types/node': 24.0.13
+      '@types/tough-cookie': 4.0.5
+      parse5: 7.3.0
+    dev: true
+
   /@types/json-schema/7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: true
@@ -4438,6 +4450,10 @@ packages:
     resolution: {integrity: sha512-6c2ogktZ06tr2ENoZivgm7YnprnhYE4ZoXGMY+oA7IuAf17M8FWvujXZGmxLv8y0PTyts4x5A+erSwVUFA8XSg==}
     dependencies:
       '@types/superagent': 4.1.14
+    dev: true
+
+  /@types/tough-cookie/4.0.5:
+    resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
     dev: true
 
   /@types/unist/2.0.11:
@@ -12671,7 +12687,7 @@ packages:
       shallowequal: 1.1.0
     dev: true
 
-  /react-intersection-observer/9.16.0_j6k6oay3ugsr56slyfvma2drry:
+  /react-intersection-observer/9.16.0_react@19.1.0:
     resolution: {integrity: sha512-w9nJSEp+DrW9KmQmeWHQyfaP6b03v+TdXynaoA964Wxt7mdR3An11z4NNCQgL4gKSK7y1ver2Fq+JKH6CWEzUA==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -12681,7 +12697,6 @@ packages:
         optional: true
     dependencies:
       react: 19.1.0
-      react-dom: 19.1.0_react@19.1.0
     dev: true
 
   /react-is/16.13.1:
