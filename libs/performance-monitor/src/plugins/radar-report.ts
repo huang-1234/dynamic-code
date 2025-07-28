@@ -2,7 +2,7 @@
  * RadarReport - Enhanced frontend monitoring data reporting class
  * Handles reliable data transmission with queue management, batching, and retry mechanisms
  */
-export class RadarReport<T extends Record<string, any> = Record<string, any>> {
+export class RadarReport<T extends unknown = {}> {
   private queue: T[] = [];
   private sending = false;
   private retryQueue: T[] = [];

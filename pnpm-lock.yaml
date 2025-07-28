@@ -156,18 +156,24 @@ importers:
 
   libs/performance-monitor:
     specifiers:
+      '@testing-library/react': ^16.3.0
+      '@testing-library/user-event': ^14.6.1
       '@types/jsdom': ^21.1.7
       jsdom: ^26.1.0
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
       react-intersection-observer: ^9.16.0
+      vitest: ^3.2.4
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0_react@19.1.0
     devDependencies:
+      '@testing-library/react': 16.3.0_ro7haoaihpl5xxsojv6gas5eae
+      '@testing-library/user-event': 14.6.1_eboxt5b3qr45gcxzx7wxppt6li
       '@types/jsdom': 21.1.7
       jsdom: 26.1.0
-      react-intersection-observer: 9.16.0_react@19.1.0
+      react-intersection-observer: 9.16.0_j6k6oay3ugsr56slyfvma2drry
+      vitest: 3.2.4_jsdom@26.1.0
 
   packages/common-components:
     specifiers:
@@ -3998,6 +4004,27 @@ packages:
       '@babel/runtime': 7.27.6
       '@testing-library/dom': 10.4.0
       '@types/react': 19.1.8
+      react: 19.1.0
+      react-dom: 19.1.0_react@19.1.0
+    dev: true
+
+  /@testing-library/react/16.3.0_ro7haoaihpl5xxsojv6gas5eae:
+    resolution: {integrity: sha512-kFSyxiEDwv1WLl2fgsq6pPBbw5aWKrsY2/noi1Id0TK0UParSF62oFQFGHXIyaG4pp2tEub/Zlel+fjjZILDsw==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@testing-library/dom': ^10.0.0
+      '@types/react': ^18.0.0 || ^19.0.0
+      '@types/react-dom': ^18.0.0 || ^19.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.27.6
+      '@testing-library/dom': 10.4.0
       react: 19.1.0
       react-dom: 19.1.0_react@19.1.0
     dev: true
@@ -12687,7 +12714,7 @@ packages:
       shallowequal: 1.1.0
     dev: true
 
-  /react-intersection-observer/9.16.0_react@19.1.0:
+  /react-intersection-observer/9.16.0_j6k6oay3ugsr56slyfvma2drry:
     resolution: {integrity: sha512-w9nJSEp+DrW9KmQmeWHQyfaP6b03v+TdXynaoA964Wxt7mdR3An11z4NNCQgL4gKSK7y1ver2Fq+JKH6CWEzUA==}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -12697,6 +12724,7 @@ packages:
         optional: true
     dependencies:
       react: 19.1.0
+      react-dom: 19.1.0_react@19.1.0
     dev: true
 
   /react-is/16.13.1:
@@ -15695,7 +15723,7 @@ packages:
       '@vitest/snapshot': 3.2.4
       '@vitest/spy': 3.2.4
       '@vitest/utils': 3.2.4
-      chai: 5.2.0
+      chai: 5.2.1
       debug: 4.4.1
       expect-type: 1.2.1
       jsdom: 26.1.0

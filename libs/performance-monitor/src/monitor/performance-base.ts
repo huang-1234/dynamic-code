@@ -1,7 +1,7 @@
 import type { RadarReport } from "../plugins/radar-report";
 
 // 性能监控系统基类（线程安全设计）
-export abstract class PerformanceBase<T extends {} = {}> {
+export abstract class PerformanceBase<T extends unknown = {}> {
   protected readonly worker: Worker | null = null;
   protected metrics: Record<string, number | string> = {};
   private radarPlugin: RadarReport<T> | null = null;
