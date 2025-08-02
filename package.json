@@ -31,7 +31,7 @@
     "@rsbuild/core": "1.4.3",
     "tsc": "2.0.4",
     "ts-node": "10.9.2",
-    "@types/node": "20.11.24",
+    "@types/node": "20.19.9",
     "@types/react": "18.2.61",
     "@types/react-dom": "18.2.19",
     "@typescript-eslint/eslint-plugin": "7.1.0",

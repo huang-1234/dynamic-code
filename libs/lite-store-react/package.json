@@ -1,6 +1,6 @@
 {
   "name": "lite-store-react",
-  "version": "0.1.2-alpha.0",
+  "version": "0.1.2-alpha.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "private": false,
@@ -43,7 +43,6 @@
     "@rspack/cli": "1.4.3",
     "@rspack/core": "1.4.3",
     "@testing-library/react": "14.2.1",
-    "@types/node": "20.11.24",
     "@types/react": "18.2.61",
     "@types/react-dom": "18.2.19",
     "jsdom": "24.0.0",
